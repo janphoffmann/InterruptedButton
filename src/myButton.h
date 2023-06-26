@@ -30,7 +30,7 @@ public:
   int _PinNo;
   volatile bool _pressed;
   myButton();
-  void begin(int PinNo, int Pinmode);
+  void begin(int PinNo, int Pinmode, uint64_t debounceTime=500000);
   void onButtonPress(ButtonHandler callbackFunc, void* arg = 0);
   bool run();
 };
