@@ -4,11 +4,11 @@ hw_timer_t* myButton::My_timer = NULL;
 myButton* myButton::Buttons[32] = {};
 int myButton::ButtonCounter = 0;
 
-void myButton::begin(int PinNo, int Pinmode) {
+void myButton::begin(int PinNo, int Pinmode, uint64_t debounceTime) {
   if (ButtonCounter == 0) {
     My_timer = timerBegin(2, 80, true);
     timerAttachInterrupt(My_timer, &TimerIsr, true);
-    timerAlarmWrite(My_timer, 500000, false);  // .5s
+    timerAlarmWrite(My_timer, debounceTime, false);  // .5s
   }
   Buttons[ButtonCounter] = this;
   ButtonCounter++;
