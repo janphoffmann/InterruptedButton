@@ -16,7 +16,6 @@ typedef std::function<void(void*, myButton*)> ButtonHandler;
 class myButton {
 private:
   volatile bool _handleTask;
-  int _PinNo;
   int _mode;
   int _isrMode;
   static int ButtonCounter;
@@ -28,6 +27,7 @@ private:
   void IRAM_ATTR ButtonIsr();
   static void ARDUINO_ISR_ATTR TimerIsr();
 public:
+  int _PinNo;
   volatile bool _pressed;
   myButton();
   void begin(int PinNo, int Pinmode);
