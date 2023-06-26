@@ -36,5 +36,6 @@ void setup() {
 void loop() {
   //Run() functions for every Button needed, so you can do as much delay() in the above callback functions as you like ;)
   FirstButton.run();
-  SecondButton.run();
+  // the run() functions return true, if the button was pressed and false, if not...
+  if(SecondButton.run()) Serial.println("To use Callbacks , or not to use Callbacks");
 }
